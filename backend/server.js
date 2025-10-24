@@ -1,4 +1,3 @@
-// backend/server.js
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -22,6 +21,9 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
+
+// NOTE: We removed local uploads directory and static serving of /uploads
+// because image files are no longer stored on server (imageUrl stored as external URL).
 
 // rate limiter (tune as needed)
 const limiter = rateLimit({ windowMs: 60 * 1000, max: 200 });
@@ -65,3 +67,6 @@ async function start() {
 }
 
 start();
+
+// Export app for tests if needed
+module.exports = app;
