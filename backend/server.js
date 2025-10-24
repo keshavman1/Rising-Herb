@@ -50,6 +50,11 @@ async function start() {
       throw new Error('MONGO_URI (or LOCAL_MONGO_URI) not set in .env');
     }
 
+    // Fail fast if JWT secret missing — avoids runtime jwt.sign crashes later
+    if (!process.env.JWT_SECRET) {
+      throw new Error('JWT_SECRET not set in environment. Please set JWT_SECRET in backend/.env before starting.');
+    }
+
     console.log('Attempting MongoDB connection to:', process.env.MONGO_URI ? 'Atlas (SRV)' : 'local/non-SRV');
 
     await mongoose.connect(mongoUri, {
