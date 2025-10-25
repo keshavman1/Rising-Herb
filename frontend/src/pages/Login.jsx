@@ -3,22 +3,24 @@ import React, { useState } from 'react';
 import { useAuth } from '../auth/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 
-export default function Login(){
+export default function Login() {
   const { login } = useAuth();
   const nav = useNavigate();
-  const [form, setForm] = useState({ email:'', password:'' });
+  const [form, setForm] = useState({ email: '', password: '' });
   const [err, setErr] = useState('');
   const [busy, setBusy] = useState(false);
 
-  async function submit(e){
+  async function submit(e) {
     e.preventDefault();
     setErr('');
     setBusy(true);
-    try{
+    try {
       await login(form);
       nav('/');
-    }catch(e){
-      setErr(e.response?.data?.message || e.message || 'Login failed');
+    } catch (e) {
+      // axios error shape
+      const message = e?.response?.data?.message || e?.message || 'Login failed';
+      setErr(message);
     } finally {
       setBusy(false);
     }
@@ -42,7 +44,7 @@ export default function Login(){
               placeholder="you@example.com"
               type="email"
               value={form.email}
-              onChange={e=>setForm({...form, email:e.target.value})}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
               required
               autoComplete="email"
             />
@@ -55,7 +57,7 @@ export default function Login(){
               placeholder="Password"
               type="password"
               value={form.password}
-              onChange={e=>setForm({...form, password:e.target.value})}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
               required
               autoComplete="current-password"
             />
