@@ -6,11 +6,14 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminUsers from './pages/AdminUsers';
+import AdminContent from './pages/AdminContent';
 import CategoryView from './pages/CategoryView';
 import { useAuth } from './auth/AuthContext';
 import AdminRoute from './auth/AdminRoute';
 import ErrorBoundary from './ui/ErrorBoundary';
 import AllHerbs from './pages/AllHerbs';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
 
 
 // --- Search context to share real-time query ---
@@ -52,9 +55,15 @@ export default function App() {
               {/* --- Collapsible navigation --- */}
               <div className="collapse navbar-collapse">
                 <ul className="navbar-nav me-auto">
-                  {/* <li className="nav-item">
+                  <li className="nav-item">
                     <Link className="nav-link fw-semibold" to="/">Home</Link>
-                  </li> */}
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link fw-semibold" to="/about">About Us</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link fw-semibold" to="/contact">Contact Us</Link>
+                  </li>
                 </ul>
 
                 {/* --- Real-time search bar --- */}
@@ -82,6 +91,14 @@ export default function App() {
                           onClick={() => navigate('/admin')}
                         >
                           Post Herb
+                        </button>
+                      </li>
+                      <li className="nav-item">
+                        <button
+                          className="btn btn-outline-info me-2"
+                          onClick={() => navigate('/admin/content')}
+                        >
+                          Manage Content
                         </button>
                       </li>
                       <li className="nav-item">
@@ -122,12 +139,14 @@ export default function App() {
           <div className="container my-4">
             <Routes>
               <Route path="/all-herbs" element={<AllHerbs />} />
-
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/contact" element={<ContactUs />} />
               <Route path="/category/:name" element={<CategoryView />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
               <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+              <Route path="/admin/content" element={<AdminRoute><AdminContent /></AdminRoute>} />
               <Route path="/admin/users" element={<AdminRoute><AdminUsers /></AdminRoute>} />
             </Routes>
           </div>

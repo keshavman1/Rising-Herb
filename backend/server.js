@@ -17,6 +17,8 @@ const chatRoutes = require('./routes/chat');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const herbRoutes = require('./routes/herbs');
+const carouselRoutes = require('./routes/carousel');
+const pageContentRoutes = require('./routes/pageContent');
 
 // seed util (optional — keep if you have it)
 const seedAdmins = require('./utils/seedAdmins');
@@ -37,6 +39,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/herbs', herbRoutes);
 app.use('/api/chat', chatRoutes);
+app.use('/api/carousel', carouselRoutes);
+app.use('/api/page-content', pageContentRoutes);
 
 // Health-check
 app.get('/api/health', (req, res) => res.json({ ok: true, now: new Date().toISOString() }));
