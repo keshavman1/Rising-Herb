@@ -38,7 +38,7 @@ export default function HerbCard({ herb = {}, onChat = () => {} }) {
     >
       {/* Image Container */}
       <div style={{ position: 'relative', overflow: 'hidden' }}>
-        {imageUrl ? (
+      {imageUrl ? (
           <img 
             src={imageUrl} 
             className="card-img-top" 
@@ -55,7 +55,7 @@ export default function HerbCard({ herb = {}, onChat = () => {} }) {
               e.currentTarget.style.transform = 'scale(1)';
             }}
           />
-        ) : (
+      ) : (
           <div 
             style={{ 
               height: '240px', 
@@ -66,9 +66,9 @@ export default function HerbCard({ herb = {}, onChat = () => {} }) {
             }}
           >
             <FaTag className="text-success" size={48} />
-          </div>
-        )}
-        
+        </div>
+      )}
+
         {/* Category Badge */}
         <div
           style={{
@@ -142,7 +142,7 @@ export default function HerbCard({ herb = {}, onChat = () => {} }) {
               </div>
 
               {/* WhatsApp Button */}
-              {waLink ? (
+            {waLink ? (
                 <a 
                   href={waLink} 
                   rel="noreferrer" 
@@ -171,8 +171,8 @@ export default function HerbCard({ herb = {}, onChat = () => {} }) {
                   }}
                 >
                   <FaWhatsapp size={20} />
-                </a>
-              ) : (
+              </a>
+            ) : (
                 <button 
                   className="btn" 
                   disabled 
@@ -192,8 +192,8 @@ export default function HerbCard({ herb = {}, onChat = () => {} }) {
                   }}
                 >
                   <FaWhatsapp size={20} />
-                </button>
-              )}
+              </button>
+            )}
             </div>
           </div>
         </div>

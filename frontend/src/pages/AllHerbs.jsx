@@ -97,7 +97,7 @@ export default function AllHerbs() {
         </button>
       </div>
 
-      <div className="row">
+    <div className="row">
         {/* Sidebar Filters - Desktop & Mobile */}
         <div className={`col-md-3 mb-4 ${showMobileFilters ? 'd-block' : 'd-none'} d-md-block`}>
           <div 
@@ -194,8 +194,8 @@ export default function AllHerbs() {
                     style={{ borderRadius: '8px' }}
                   />
                 </div>
-              </div>
-            </div>
+          </div>
+          </div>
 
             {/* Sort By */}
             <div>
@@ -225,8 +225,8 @@ export default function AllHerbs() {
                     {option.label}
                   </button>
                 ))}
-              </div>
-            </div>
+          </div>
+          </div>
           </div>
         </div>
 
@@ -256,10 +256,10 @@ export default function AllHerbs() {
                 )}
               </div>
             )}
-          </div>
+      </div>
 
           {/* Products Grid */}
-          {sortedHerbs.length === 0 ? (
+        {sortedHerbs.length === 0 ? (
             <div className="card shadow-sm border-0 text-center py-5" style={{ borderRadius: '16px' }}>
               <div className="card-body">
                 <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔍</div>
@@ -276,7 +276,7 @@ export default function AllHerbs() {
                 )}
               </div>
             </div>
-          ) : (
+        ) : (
             <div className="row g-4">
               {sortedHerbs.map((h, index) => (
                 <div className="col-lg-4 col-md-6" key={h._id || Math.random()}>
@@ -299,12 +299,12 @@ export default function AllHerbs() {
                       }
                     }}
                   >
-                    <HerbCard herb={h} onChat={() => setSelected(h)} />
+                <HerbCard herb={h} onChat={() => setSelected(h)} />
                   </div>
-                </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
+        )}
         </div>
       </div>
 

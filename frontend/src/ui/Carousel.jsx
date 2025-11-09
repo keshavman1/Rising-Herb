@@ -14,11 +14,11 @@ export default function Carousel({ items = [], interval = 5000 }) {
   }, [items, interval, isPaused]);
 
   if (!items || items.length === 0) {
-    return (
-      <div style={{
-        position: 'relative',
+  return (
+    <div style={{
+      position: 'relative',
         height: '500px',
-        overflow: 'hidden',
+      overflow: 'hidden',
         borderRadius: '20px',
         background: 'linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%)',
         display: 'flex',
@@ -67,7 +67,7 @@ export default function Carousel({ items = [], interval = 5000 }) {
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
         {items.map((item, i) => (
           <div
-            key={i}
+          key={i}
             style={{
               position: 'absolute',
               top: 0,
@@ -82,9 +82,9 @@ export default function Carousel({ items = [], interval = 5000 }) {
             <img
               src={item.imageUrl}
               alt={item.title || `Slide ${i + 1}`}
-              style={{
-                width: '100%',
-                height: '100%',
+          style={{
+            width: '100%',
+            height: '100%',
                 objectFit: 'cover'
               }}
             />
@@ -200,7 +200,7 @@ export default function Carousel({ items = [], interval = 5000 }) {
               zIndex: 4,
               transition: 'all 0.3s ease',
               boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-            }}
+          }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'white';
               e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
@@ -219,10 +219,10 @@ export default function Carousel({ items = [], interval = 5000 }) {
       {items.length > 1 && (
         <div
           style={{
-            position: 'absolute',
+          position: 'absolute',
             bottom: '20px',
-            left: '50%',
-            transform: 'translateX(-50%)',
+          left: '50%',
+          transform: 'translateX(-50%)',
             display: 'flex',
             gap: '10px',
             zIndex: 4
